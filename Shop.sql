@@ -40,7 +40,7 @@ CREATE TABLE Products
     Name        VARCHAR(100),
     Description VARCHAR(500),
     CategoryId  INT,
-    Price       DECIMAL(19, 2) UNSIGNED,
+    Price       DECIMAL(19, 2),
     CONSTRAINT Products_Categories_FK
         FOREIGN KEY (CategoryId) REFERENCES Categories (Id)
 );
@@ -51,7 +51,7 @@ CREATE TABLE Orders
     CustomerId  INT,
     Date        DATE,
     Address     VARCHAR(200),
-    TotalAmount DECIMAL(19, 2) UNSIGNED,
+    TotalAmount DECIMAL(19, 2),
     CONSTRAINT Orders_CustomersId_FK
         FOREIGN KEY (CustomerId) REFERENCES Customers (Id)
 );
