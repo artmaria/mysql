@@ -5,7 +5,7 @@ CREATE TABLE book (
     title VARCHAR (50),
     author VARCHAR (30),
     price DECIMAL (8, 2),
-    amount int
+    amount INT
 );
     
 INSERT INTO book (title, author, price, amount)
