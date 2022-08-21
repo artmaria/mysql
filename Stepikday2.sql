@@ -10,7 +10,7 @@ CREATE TABLE book (
 );
 
 CREATE TABLE supply (
-	supply_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    supply_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR (50),
     author VARCHAR (30),
     price DECIMAL (8, 2),
@@ -28,8 +28,8 @@ VALUES
     
 INSERT INTO supply (title, author, price, amount)
 VALUES 
-	("Лирика", "Пастернак Б.Л.", 518.99, 2),
-	("Черный человек", "Есенин С.А.", 570.20, 6),
+    ("Лирика", "Пастернак Б.Л.", 518.99, 2),
+    ("Черный человек", "Есенин С.А.", 570.20, 6),
     ("Белая гвардия", "Булгаков М.А.", 540.50, 7),
     ("Идиот", "Достоевский Ф.М.", 360.80, 3);
     
@@ -104,7 +104,7 @@ ORDER BY price;
 SELECT author, title, amount
 FROM book
 WHERE amount IN (
-	SELECT amount FROM book
+    SELECT amount FROM book
     GROUP BY amount
     HAVING count(amount) = 1);
 
@@ -113,7 +113,7 @@ WHERE amount IN (
 SELECT author, title, price
 FROM book
 WHERE price < ANY (
-	SELECT MIN(price)
+    SELECT MIN(price)
     FROM book
     GROUP BY author);
     
