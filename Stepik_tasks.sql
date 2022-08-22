@@ -60,4 +60,30 @@ WHERE title NOT IN (SELECT title FROM supply) AND amount < 5;
 
 SELECT * FROM orders;
 
+-- Вывести из таблицы trip информацию о командировках тех сотрудников, фамилия которых заканчивается на букву «а», в отсортированном по убыванию даты последнего дня командировки виде. В результат включить столбцы name, city, per_diem, date_first, date_last.
+
+SELECT name, city, per_diem, date_first, date_last FROM trip
+WHERE name LIKE "%а %.%."
+ORDER BY date_last DESC;
+
+-- Вывести в алфавитном порядке фамилии и инициалы тех сотрудников, которые были в командировке в Москве.
+
+SELECT DISTINCT name FROM trip
+WHERE city = "Москва"
+ORDER BY name;
+
+-- Для каждого города посчитать, сколько раз сотрудники в нем были.  Информацию вывести в отсортированном в алфавитном порядке по названию городов. Вычисляемый столбец назвать Количество.
+
+SELECT city, COUNT(city) AS Количество FROM trip
+GROUP BY city
+ORDER BY city;
+
+-- Вывести два города, в которых чаще всего были в командировках сотрудники. Вычисляемый столбец назвать Количество.
+
+SELECT city, COUNT(city) AS Количество FROM trip
+GROUP BY city
+ORDER BY COUNT(city) DESC
+LIMIT 2;
+    
+
 
